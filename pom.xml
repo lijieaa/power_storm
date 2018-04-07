@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jay</groupId>
+    <artifactId>power_storm</artifactId>
+    <version>1.2.1</version>
+
+    <properties>
+        <!-- Kafka version used by old storm-kafka spout code -->
+        <storm.kafka.version>0.8.2.2</storm.kafka.version>
+        <storm.kafka.artifact.id>kafka_2.9.1</storm.kafka.artifact.id>
+        <!-- kafka version used by new storm-kafka-client spout code -->
+        <storm.kafka.client.version>0.8.2.2</storm.kafka.client.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-core</artifactId>
+            <version>${project.version}</version>
+            <scope>${provided.scope}</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-kafka</artifactId>
+            <version>${project.version}</version>
+            <scope>${provided.scope}</scope>
+        </dependency>
+         <dependency>
+             <groupId>org.apache.kafka</groupId>
+             <artifactId>kafka_2.9.1</artifactId>
+             <version>0.8.2.2</version>
+             <exclusions>
+                 <exclusion>
+                     <groupId>org.apache.zookeeper</groupId>
+                     <artifactId>zookeeper</artifactId>
+                 </exclusion>
+                 <exclusion>
+                     <groupId>log4j</groupId>
+                     <artifactId>log4j</artifactId>
+                 </exclusion>
+             </exclusions>
+         </dependency>
+    </dependencies>
+</project>
